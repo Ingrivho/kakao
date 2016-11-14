@@ -18,7 +18,7 @@ class Arbitrator():
         formatted = map(lambda mr: ('Decsript: %s \t Pri: %d \t Action: %r' % (mr.description, mr.pri, mr.action)), self.motor_recs)
         for string in formatted:
           print(string)
-        print('The arbitrator chose the one with the hightest priority: %s' % val.description)
+        print('The arbitrator chose the one with the highest priority: %s' % val.description)
         print('---')
 
         self.motor_recs = [self.forward_rec];

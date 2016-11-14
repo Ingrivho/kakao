@@ -2,7 +2,7 @@ from Behavior import Behavior
 from motor_rec import Motor_Rec
 from reflectance_sensors import *
 
-class TurnAtEdge(Behavior):
+class Turn(Behavior):
    
     def __init__(self, sensobs, pri):
             super().__init__(sensobs, True, pri)
@@ -10,7 +10,7 @@ class TurnAtEdge(Behavior):
             self.threshold = 0.3
             
     def _update_flag(self):
-        #Checks the urrent values of the ir sensor and checks if any of them are darker than threshold
+        #Checks the current values of the ir sensor and checks if any of them are darker than threshold
         values = self.ir.get_value()
         for v in values:
             if v < self.threshold:
@@ -24,5 +24,5 @@ class TurnAtEdge(Behavior):
         if self.active_flag:
             self.match_degree = 200
             self.motor_recommendation.action = "b" 
-            self.motor_recommendation.description = 'WATCH OUT, THE WALL!!!!'
+            self.motor_recommendation.description = 'Watch out, THE WALL!'
         

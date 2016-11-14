@@ -2,7 +2,7 @@ from motors import Motors
 from zumo_button import ZumoButton
 from time import sleep
 from test_dogde import Test_dogde
-form time import sleep
+from time import sleep
 
 def Start():
 	ZumoButton().wait_for_press();
@@ -15,7 +15,7 @@ def Start():
 		
 		print("forward" + str(speed_value));
 		if speed_value<0:
-			print("RYGG!!");
+			print("backward");
 			m.backward(-1*speed_value);
 		else:
 			m.right(0.4,1);

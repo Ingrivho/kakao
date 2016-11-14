@@ -3,11 +3,11 @@ from ultrasonic import *
 from Arbitrator import Arbitrator
 from reflectance_sensors import ReflectanceSensors
 from camera import Camera
-from derp import Derp
+from lol import Lol
 from motors import Motors
-from driveToColor import driveToColor
-from watchOutForTheWall import WatchOutForTheWall
-from turnAtEdge import TurnAtEdge
+from findColor import FindColor
+from wall import Wall
+from turn import Turn
 from zumo_button import ZumoButton
 
 class BBCON():
@@ -39,7 +39,7 @@ class BBCON():
 
         for behavior in self.behaviors:
 
-          if behavior.__class__.__name__ != 'driveToColor':
+          if behavior.__class__.__name__ != 'findColor':
             mr = behavior.get_update() # Get our beloved motor recommendation from the behavior
 
 
@@ -76,9 +76,9 @@ sensobs = {'ir' : rs,  'ultrasonic' : ultra, 'camera' : camera }
 # Intialize and add behaviors to our list
 behaviors = [];
 
-behaviors.append(WatchOutForTheWall(sensobs, 5));
-behaviors.append(TurnAtEdge(sensobs, 5));
-behaviors.append(driveToColor(sensobs, 8))
+behaviors.append(Wall(sensobs, 5));
+behaviors.append(Turn(sensobs, 5));
+behaviors.append(findColor(sensobs, 8))
 
 # Initialize behavior based controller
 bbcon = BBCON(behaviors, sensobs)
@@ -101,4 +101,4 @@ bbcon.motors.turnAround("l",180);
 while True and button.button_pressed(): # button_pressed actually means button not pressed
   bbcon.loop()
 
-bbcon.motors.stop(); # STOP MOVING PLZ
+bbcon.motors.stop();

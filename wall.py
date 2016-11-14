@@ -3,7 +3,7 @@ from motor_rec import Motor_Rec
 from ultrasonic import *
 
 
-class WatchOutForTheWall(Behavior):
+class Wall(Behavior):
   def __init__(self, sensobs, static_pri):
     super().__init__(sensobs, True, static_pri)
 
@@ -19,4 +19,4 @@ class WatchOutForTheWall(Behavior):
       action = ["r",degrees];
     else:
       self.active_flag = False
-    return Motor_Rec(10, action, 'watchOutForTheWall - distance:' + str(distance))
+    return Motor_Rec(10, action, 'Wall - distance:' + str(distance))

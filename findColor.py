@@ -3,7 +3,7 @@ from camera import Camera
 from motor_rec import Motor_Rec
 from imager2 import Imager
 
-class driveToColor(Behavior):
+class FindColor(Behavior):
     def __init__(self, sensobs, static_pri):
         super().__init__(sensobs, True, static_pri)
 
@@ -57,5 +57,5 @@ class driveToColor(Behavior):
         self.match_degree = 100
         direction = 'l' if self.angle > 0 else 'r'
         self.motor_recommendation.action = [direction, abs(self.angle)]
-        self.motor_recommendation.description = 'Drive to color'
+        self.motor_recommendation.description = 'Find color and drive to it'
 
