@@ -5,7 +5,7 @@ from PIL import Image
 from abc import abstractmethod
 import RPi.GPIO as GPIO
 import time
-import wiringpi2 as wp
+import wiringpi as wp
 
 
 class Sensor:
