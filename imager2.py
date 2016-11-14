@@ -164,6 +164,8 @@ class Imager():
 
     def mortun(self,im2,levels=5,scale=0.75):
         return self.tunnel(levels,scale).morph4(im2.tunnel(levels,scale))
+    def crop(self, box=None):
+        return Imager(image=self.image.crop(box))
 
 ### *********** TESTS ************************
 
