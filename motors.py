@@ -18,8 +18,6 @@ class Motors():
     self.turnDur = 12;
     self.lastTurn = "r"
 
-    wp.wiringPiSetupGpio()
-
     wp.pinMode(18, 2)
     wp.pinMode(19, 2)
     wp.pinMode(23, 1)
